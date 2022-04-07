@@ -1,5 +1,19 @@
 #include "../include/so_long.h"
 
+#include <stdio.h>
+void	print_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
+}
+
+
 int main(int argc, char **argv)
 {
 	t_map map;
@@ -8,8 +22,8 @@ int main(int argc, char **argv)
 		error1("Error : num arguments must be 1\n");
 
 	map.map = map_parser(argv[1]);
-	if (!is_map_valid(map.map))
-		error1("Error : map is invalid\n");
+	map_validation((const char **)map.map);
+	print_map(map.map);
 
 	return (0);
 }
