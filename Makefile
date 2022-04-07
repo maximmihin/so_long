@@ -7,7 +7,7 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 SRC = src/parser.c \
-		src/checker.c src/checker_utils.c \
+		src/map_validation.c src/map_validation_utils.c \
 		src/errors.c \
 		src/main.c
 
