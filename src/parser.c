@@ -15,7 +15,7 @@ char	*get_map_in_line(char *map_file)
 	int		fd;
 	char	*buff;
 	char	*map_in_line;
-	int 	was_read;
+	long 	was_read;
 	char	*tmp;
 
 	fd = open(map_file, O_RDONLY);
@@ -26,13 +26,15 @@ char	*get_map_in_line(char *map_file)
 	if (!buff)
 		error1("Error : malloc failed\n");
 
-	was_read = read(fd, &buff, BUFF_SIZE);
+	ft_bzero(buff, BUFF_SIZE);
+	was_read = read(fd, buff, BUFF_SIZE);
 	if (was_read == -1)
 		error1("Error : read file failed\n");
 	map_in_line = ft_strdup(buff);
 	while (was_read == BUFF_SIZE)
 	{
-		was_read = read(fd, &buff, BUFF_SIZE);
+		ft_bzero(buff, BUFF_SIZE);
+		was_read = read(fd, buff, BUFF_SIZE);
 		if (was_read == -1)
 			error1("Error : read file failed\n");
 		tmp = map_in_line;
