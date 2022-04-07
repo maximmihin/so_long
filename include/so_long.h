@@ -16,6 +16,6 @@ typedef struct s_map
 void	error1(char *str);
 
 char	**map_parser(char *map_file);
-int		is_map_valid(static char **map);
+void	map_validation(char const **map);
 
 #endif
