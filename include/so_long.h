@@ -8,10 +8,10 @@
 #  define BUFF_SIZE 42
 # endif
 
-typedef struct s_map
+typedef struct s_map_data
 {
 	char	**map;
-}	t_map;
+}	t_map_data;
 
 void	error1(char *str);
 

@@ -16,7 +16,7 @@ void	print_map(char **map)
 
 int main(int argc, char **argv)
 {
-	t_map map;
+	t_map_data map;
 
 	if (argc != 2)
 		error1("Error : num arguments must be 1\n");
