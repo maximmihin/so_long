@@ -8,6 +8,7 @@ FLAGS = -Wall -Wextra -Werror
 
 SRC = src/parser.c \
 		src/map_validation.c src/map_validation_utils.c \
+		src/extract_map_data.c \
 		src/errors.c \
 		src/main.c
 

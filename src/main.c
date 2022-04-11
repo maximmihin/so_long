@@ -16,14 +16,14 @@ void	print_map(char **map)
 
 int main(int argc, char **argv)
 {
-	t_map_data map;
+	t_map_data map_data;
 
 	if (argc != 2)
 		error1("Error : num arguments must be 1\n");
 
-	map.map = map_parser(argv[1]);
-	map_validation((const char **)map.map);
-	print_map(map.map);
-
+	map_data.map = map_parser(argv[1]);
+	map_validation((const char **)map_data.map);
+	map_data = extract_map_data(map_data);
+	print_map(map_data.map);
 	return (0);
 }
