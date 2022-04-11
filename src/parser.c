@@ -7,6 +7,8 @@ int		is_ber_file(char *map_file)
 	char	*dot;
 
 	dot = ft_strrchr(map_file, '.');
+	if (!dot)
+		return (0);
 	return (!ft_strncmp(dot, ".ber\0", 5));
 }
 
