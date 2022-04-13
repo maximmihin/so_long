@@ -35,14 +35,12 @@ char	*get_map_in_line(char *map_file)
 	map_in_line = ft_strdup(buff);
 	while (was_read == BUFF_SIZE)
 	{
-//		ft_bzero(buff, BUFF_SIZE);
 		was_read = read(fd, buff, BUFF_SIZE);
 		if (was_read == -1)
 			error1("Error : read file failed\n");
 		buff[was_read] = '\0';
 		tmp = map_in_line;
 		map_in_line = ft_strjoin(map_in_line, buff);
-//		map_in_line = ft_substr(buff, 0, was_read);
 		free(tmp);
 	}
 	free(buff);
@@ -55,7 +53,7 @@ char	**map_parser(char *map_file)
 	char	**map;
 
 	if (!is_ber_file(map_file))
-		error1("Error : if not .ber file\n");
+		error1("Error : is not .ber file\n");
 
 	map_in_line = get_map_in_line(map_file);
 	map = ft_split(map_in_line, '\n');
