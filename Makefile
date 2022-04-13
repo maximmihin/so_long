@@ -19,18 +19,20 @@ OBJ = $(SRC:%.c= %.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ) $(HEADER)
-	cd libft && make
-	$(CC) $(FLAGS) $(OBJ) libft/libft.a -o $(NAME)
+	@cd libs/libft && make
+	@cd libs/MinilibX && make
+	@$(CC) $(OBJ) libs/libft/libft.a libs/MinilibX/libmlx.a -o $(NAME) -framework OpenGL -framework AppKit
 
 %.o	: %.c $(HEADER)
-	$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) $(FLAGS) -Imlx -c $< -o $@
 
 clean	:
-	cd libft && make clean
+	@cd libs/libft && make clean
 	@rm -f $(OBJ)
 
 fclean	:	clean
-	cd libft && make fclean
+	@cd libs/libft && make fclean
+	@cd libs/MinilibX && make clean
 	@$(RM) $(NAME)
 
 re	:	fclean all

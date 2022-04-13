@@ -2,7 +2,8 @@
 # define SO_LONG_H
 
 # include <fcntl.h>
-# include "../libft/libft.h"
+# include "../libs/MinilibX/mlx.h"
+# include "../libs/libft/libft.h"
 
 # ifndef BUFF_SIZE
 #  define BUFF_SIZE 42
