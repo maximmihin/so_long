@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.20)
 project(so_long C)
 
 set(CMAKE_C_STANDARD 99)
-# надо сделать так, чтобы эти флаги применялись только там, где нужны
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -framework OpenGL -framework AppKit")
 
 include_directories(include)
