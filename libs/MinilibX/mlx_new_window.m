@@ -434,13 +434,13 @@ int get_mouse_button(NSEventType eventtype)
     return (0);
 
   glUseProgram(glsl.pixel_program);
-  glsl.loc_pixel_texture = glGetUniformLocation(glsl.pixel_program, "texture");
+  glsl.loc_pixel_texture = glGetUniformLocation(glsl.pixel_program, "textures");
   //glsl.loc_pixel_winhalfsize = glGetUniformLocation(glsl.pixel_program, "winhalfsize");
   glsl.loc_pixel_position = glGetAttribLocation(glsl.pixel_program, "position");
   //      printf("err? 0x%x\n", glGetError());
 
   glUseProgram(glsl.image_program);
-  glsl.loc_image_texture = glGetUniformLocation(glsl.image_program, "texture");
+  glsl.loc_image_texture = glGetUniformLocation(glsl.image_program, "textures");
   glsl.loc_image_pos = glGetUniformLocation(glsl.image_program, "imagepos");
   glsl.loc_image_size = glGetUniformLocation(glsl.image_program, "imagesize");
   glsl.loc_image_winhalfsize = glGetUniformLocation(glsl.image_program, "winhalfsize");
@@ -448,7 +448,7 @@ int get_mouse_button(NSEventType eventtype)
   //      printf("err? 0x%x\n", glGetError());
 
   glUseProgram(glsl.font_program);
-  glsl.loc_font_texture = glGetUniformLocation(glsl.font_program, "texture");
+  glsl.loc_font_texture = glGetUniformLocation(glsl.font_program, "textures");
   glsl.loc_font_color = glGetUniformLocation(glsl.font_program, "color");
   glsl.loc_font_posinwin = glGetUniformLocation(glsl.font_program, "fontposinwin");
   glsl.loc_font_posinatlas = glGetUniformLocation(glsl.font_program, "fontposinatlas");

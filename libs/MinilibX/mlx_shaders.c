@@ -49,11 +49,11 @@ int mlx_shaders_pixel(glsl_info_t *glsl)
 
   glsl->pixel_fshader = glCreateShader(GL_FRAGMENT_SHADER);
   source = strdup("#version 110 \n"
-		  "uniform sampler2D texture;"
+		  "uniform sampler2D textures;"
 		  "varying vec2 texcoord;"
 		  "void main()"
 		  "{"
-		  " gl_FragColor = texture2D(texture, texcoord);"
+		  " gl_FragColor = texture2D(textures, texcoord);"
 		  "}");
   length = strlen(source);
   glShaderSource(glsl->pixel_fshader, 1, (const GLchar**)&source, &length);
@@ -119,11 +119,11 @@ int mlx_shaders_image(glsl_info_t *glsl)
 
   glsl->image_fshader = glCreateShader(GL_FRAGMENT_SHADER);
   source = strdup("#version 110 \n"
-		  "uniform sampler2D texture;"
+		  "uniform sampler2D textures;"
 		  "varying vec2 texcoord;"
 		  "void main()"
 		  "{"
-		  " gl_FragColor = texture2D(texture, texcoord);"
+		  " gl_FragColor = texture2D(textures, texcoord);"
 		  "}");
   length = strlen(source);
   glShaderSource(glsl->image_fshader, 1, (const GLchar**)&source, &length);
@@ -196,12 +196,12 @@ int mlx_shaders_font(glsl_info_t *glsl)
 
   glsl->font_fshader = glCreateShader(GL_FRAGMENT_SHADER);
   source = strdup("#version 110 \n"
-		  "uniform sampler2D texture;"
+		  "uniform sampler2D textures;"
 		  "uniform vec4 color;"
 		  "varying vec2 texcoord;"
 		  "void main()"
 		  "{"
-		  " gl_FragColor = color * texture2D(texture, texcoord);"
+		  " gl_FragColor = color * texture2D(textures, texcoord);"
 		  "}");
   length = strlen(source);
   glShaderSource(glsl->font_fshader, 1, (const GLchar**)&source, &length);
