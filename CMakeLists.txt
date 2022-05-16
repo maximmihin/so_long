@@ -2,69 +2,71 @@ cmake_minimum_required(VERSION 3.20)
 project(so_long C)
 
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -framework OpenGL -framework AppKit")
+
+set(LIBFT_PATH libs/libft)
+set(MLX_PATH libs/MinilibX)
 
 include_directories(include)
-include_directories(libs/libft)
-include_directories(libs/MinilibX)
+include_directories(${LIBFT_PATH})
+include_directories(${MLX_PATH})
 
 add_library(ft STATIC
-        libs/libft/ft_atoi.c
-        libs/libft/ft_atoi.c
-        libs/libft/ft_atoll.c
-        libs/libft/ft_bzero.c
-        libs/libft/ft_calloc.c
-        libs/libft/ft_isalnum.c
-        libs/libft/ft_isalpha.c
-        libs/libft/ft_isascii.c
-        libs/libft/ft_isdigit.c
-        libs/libft/ft_isprint.c
-        libs/libft/ft_itoa.c
-        libs/libft/ft_lstadd_back.c
-        libs/libft/ft_lstadd_front.c
-        libs/libft/ft_lstclear.c
-        libs/libft/ft_lstdelone.c
-        libs/libft/ft_lstiter.c
-        libs/libft/ft_lstlast.c
-        libs/libft/ft_lstmap.c
-        libs/libft/ft_lstnew.c
-        libs/libft/ft_lstsize.c
-        libs/libft/ft_memchr.c
-        libs/libft/ft_memcmp.c
-        libs/libft/ft_memcpy.c
-        libs/libft/ft_memmove.c
-        libs/libft/ft_memset.c
-        libs/libft/ft_putchar_fd.c
-        libs/libft/ft_putendl_fd.c
-        libs/libft/ft_putnbr_fd.c
-        libs/libft/ft_putstr_fd.c
-        libs/libft/ft_split.c
-        libs/libft/ft_strchr.c
-        libs/libft/ft_strdup.c
-        libs/libft/ft_striteri.c
-        libs/libft/ft_strjoin.c
-        libs/libft/ft_strlcat.c
-        libs/libft/ft_strlcpy.c
-        libs/libft/ft_strlen.c
-        libs/libft/ft_strmapi.c
-        libs/libft/ft_strncmp.c
-        libs/libft/ft_strnstr.c
-        libs/libft/ft_strrchr.c
-        libs/libft/ft_strtrim.c
-        libs/libft/ft_substr.c
-        libs/libft/ft_tolower.c
-        libs/libft/ft_toupper.c
+        ${LIBFT_PATH}/ft_atoi.c
+        ${LIBFT_PATH}/ft_atoi.c
+        ${LIBFT_PATH}/ft_atoll.c
+        ${LIBFT_PATH}/ft_bzero.c
+        ${LIBFT_PATH}/ft_calloc.c
+        ${LIBFT_PATH}/ft_isalnum.c
+        ${LIBFT_PATH}/ft_isalpha.c
+        ${LIBFT_PATH}/ft_isascii.c
+        ${LIBFT_PATH}/ft_isdigit.c
+        ${LIBFT_PATH}/ft_isprint.c
+        ${LIBFT_PATH}/ft_itoa.c
+        ${LIBFT_PATH}/ft_lstadd_back.c
+        ${LIBFT_PATH}/ft_lstadd_front.c
+        ${LIBFT_PATH}/ft_lstclear.c
+        ${LIBFT_PATH}/ft_lstdelone.c
+        ${LIBFT_PATH}/ft_lstiter.c
+        ${LIBFT_PATH}/ft_lstlast.c
+        ${LIBFT_PATH}/ft_lstmap.c
+        ${LIBFT_PATH}/ft_lstnew.c
+        ${LIBFT_PATH}/ft_lstsize.c
+        ${LIBFT_PATH}/ft_memchr.c
+        ${LIBFT_PATH}/ft_memcmp.c
+        ${LIBFT_PATH}/ft_memcpy.c
+        ${LIBFT_PATH}/ft_memmove.c
+        ${LIBFT_PATH}/ft_memset.c
+        ${LIBFT_PATH}/ft_putchar_fd.c
+        ${LIBFT_PATH}/ft_putendl_fd.c
+        ${LIBFT_PATH}/ft_putnbr_fd.c
+        ${LIBFT_PATH}/ft_putstr_fd.c
+        ${LIBFT_PATH}/ft_split.c
+        ${LIBFT_PATH}/ft_strchr.c
+        ${LIBFT_PATH}/ft_strdup.c
+        ${LIBFT_PATH}/ft_striteri.c
+        ${LIBFT_PATH}/ft_strjoin.c
+        ${LIBFT_PATH}/ft_strlcat.c
+        ${LIBFT_PATH}/ft_strlcpy.c
+        ${LIBFT_PATH}/ft_strlen.c
+        ${LIBFT_PATH}/ft_strmapi.c
+        ${LIBFT_PATH}/ft_strncmp.c
+        ${LIBFT_PATH}/ft_strnstr.c
+        ${LIBFT_PATH}/ft_strrchr.c
+        ${LIBFT_PATH}/ft_strtrim.c
+        ${LIBFT_PATH}/ft_substr.c
+        ${LIBFT_PATH}/ft_tolower.c
+        ${LIBFT_PATH}/ft_toupper.c
         )
 
 add_library(mlx STATIC
-        libs/MinilibX/mlx_shaders.c
-        libs/MinilibX/mlx_new_window.m
-        libs/MinilibX/mlx_init_loop.m
-        libs/MinilibX/mlx_new_image.m
-        libs/MinilibX/mlx_xpm.c
-        libs/MinilibX/mlx_int_str_to_wordtab.c
-        libs/MinilibX/mlx_png.c
-        libs/MinilibX/mlx_mouse.m
+        ${MLX_PATH}/mlx_shaders.c
+        ${MLX_PATH}/mlx_new_window.m
+        ${MLX_PATH}/mlx_init_loop.m
+        ${MLX_PATH}/mlx_new_image.m
+        ${MLX_PATH}/mlx_xpm.c
+        ${MLX_PATH}/mlx_int_str_to_wordtab.c
+        ${MLX_PATH}/mlx_png.c
+        ${MLX_PATH}/mlx_mouse.m
         )
 
 add_executable(so_long
@@ -74,10 +76,22 @@ add_executable(so_long
         src/map_validation_utils.c
         src/errors.c
         src/extract_map_data.c
+        src/rendering.c
+        src/moves.c
+        src/moves_utils.c
         )
 
-#find_library(FT ft cmake-build-debug)
-#find_library(MLX mlx cmake-build-debug)
+target_link_libraries(so_long ft)
+target_link_libraries(so_long mlx "-framework OpenGL" "-framework AppKit")
+
+#cmake_minimum_required(VERSION 3.21)
+#project(so_long C)
 #
-#target_link_libraries(so_long LINK_PUBLIC ${FT})
-#target_link_libraries(so_long LINK_PUBLIC ${MLX})
+#set(CMAKE_C_STANDARD 99)
+#
+#add_executable(so_long source/map_checker.c source/get_next_line.c source/get_next_line_utils.c source/map_validator.c
+#        source/init_game.c source/main.c source/utils.c source/sprites.c source/play.c source/redraw.c source/entities.c
+#        source/ft_go_dir.c source/load_dir.c source/score.c source/enemies.c source/en_behavior.c)
+#
+#target_link_libraries(so_long /Users/lsherry/42Course/so_long/mlx/libmlx.a "-framework OpenGL" "-framework AppKit")
+#target_link_libraries(so_long /Users/lsherry/42Course/so_long/libft/libft.a)
