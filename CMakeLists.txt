@@ -74,7 +74,7 @@ add_executable(so_long
         src/parser.c
         src/map_validation.c
         src/map_validation_utils.c
-        src/errors.c
+        src/error.c
         src/extract_map_data.c
         src/rendering.c
         src/moves.c
