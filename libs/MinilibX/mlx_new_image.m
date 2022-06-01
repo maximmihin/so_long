@@ -131,7 +131,7 @@ int mlx_string_put(mlx_ptr_t *mlx_ptr, mlx_win_list_t *win_ptr, int x, int y, in
 	{
 	  gX = (FONT_WIDTH+2)*(*string-32);
 	  gY = 0;
-	  //      printf("put char %c pos %d %d\n", *string, gX, gY);
+	  //      printf("put char %c current_pos %d %d\n", *string, gX, gY);
 	  [(id)(win_ptr->winid) mlx_gl_draw_font:mlx_ptr->font andCtx:imgctx andX:x andY:y andColor:color glyphX:gX glyphY:gY];
 #ifdef STRINGPUTX11
 	  x += FONT_WIDTH/1.4;

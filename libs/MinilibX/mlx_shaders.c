@@ -101,9 +101,9 @@ int mlx_shaders_image(glsl_info_t *glsl)
 		  "void main()"
 		  "{"
 		  " texcoord = position / imagesize;"
-		  " vec2 pos = position - winhalfsize + imagepos;"
-		  " pos = pos / winhalfsize;"
-		  " gl_Position = vec4( pos, 0.0, 1.0);"
+		  " vec2 current_pos = position - winhalfsize + imagepos;"
+		  " current_pos = current_pos / winhalfsize;"
+		  " gl_Position = vec4( current_pos, 0.0, 1.0);"
 		  "}");
   length = strlen(source);
   glShaderSource(glsl->image_vshader, 1, (const GLchar**)&source, &length);
@@ -178,9 +178,9 @@ int mlx_shaders_font(glsl_info_t *glsl)
 #else
 		  " texcoord = (position * vec2(1.0, -1.0) + fontposinatlas ) / fontatlassize;"
 #endif
-		  " vec2 pos = position - winhalfsize + fontposinwin;"
-		  " pos = pos / winhalfsize;"
-		  " gl_Position = vec4( pos, 0.0, 1.0);"
+		  " vec2 current_pos = position - winhalfsize + fontposinwin;"
+		  " current_pos = current_pos / winhalfsize;"
+		  " gl_Position = vec4( current_pos, 0.0, 1.0);"
 		  "}");
   length = strlen(source);
   glShaderSource(glsl->font_vshader, 1, (const GLchar**)&source, &length);
