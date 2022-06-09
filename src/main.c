@@ -16,7 +16,7 @@ int	win_kill(int keycode, t_render_data *render_data)
 	if (keycode == 2)
 		ft_putstr_fd("\nYou lose!\n", 1);
 
-	render_data->loop_iteration = 0;
+	keycode = render_data->y_length;
 
 	exit(0);
 }
