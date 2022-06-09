@@ -17,7 +17,7 @@ static void	check_invalid_symbols(char const **map)
 				|| map[i][j] == 'C' || map[i][j] == 'E' || map[i][j] == 'P')
 				j++;
 			else
-				error1("Error : the map contains invalid symbols\n");
+				error("Error : the map_old contains invalid symbols\n");
 		}
 		j = 0;
 		i++;
@@ -33,14 +33,14 @@ static void	check_rectangle(char const **map)
 
 	lines_num = arrlen((void const **)map);
 	if (lines_num < 3)
-		error1("Error : the map is not rectangle\n");
+		error("Error : the map_old is not rectangle\n");
 	len = ft_strlen(map[0]);
 	i = 1;
 	while (map[i])
 	{
 		tmp_len = ft_strlen(map[i]);
 		if (tmp_len != len)
-			error1("Error : the map is not rectangle\n");
+			error("Error : the map_old is not rectangle\n");
 		i++;
 	}
 }
@@ -58,14 +58,14 @@ static void	check_closed_perimeter(char const **map)
 	while (map[0][j])
 	{
 		if (map[0][j] != '1' || map[last_line][j] != '1')
-			error1("Error : the map does not have a closed perimeter\n");
+			error("Error : the map_old does not have a closed perimeter\n");
 		j++;
 	}
 	i = 0;
 	while (map[i])
 	{
 		if (map[i][0] != '1' || map[i][last_elem] != '1')
-			error1("Error : the map does not have a closed perimeter\n");
+			error("Error : the map_old does not have a closed perimeter\n");
 		i++;
 	}
 }
@@ -95,7 +95,7 @@ static void	check_valid_symbols(char const **map)
 		i++;
 	}
 	if (arr[0] == 0 || arr[1] == 0 || arr[2] == 0)
-		error1("Error : required components not found\n");
+		error("Error : required components not found\n");
 }
 
 void	map_validation(char const **map)

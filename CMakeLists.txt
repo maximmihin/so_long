@@ -6,6 +6,7 @@ set(CMAKE_C_STANDARD 99)
 set(LIBFT_PATH libs/libft)
 set(MLX_PATH libs/MinilibX)
 
+
 include_directories(include)
 include_directories(${LIBFT_PATH})
 include_directories(${MLX_PATH})
@@ -75,11 +76,20 @@ add_executable(so_long
         src/map_validation.c
         src/map_validation_utils.c
         src/error.c
-        src/extract_map_data.c
-        src/rendering.c
-        src/moves.c
-        src/moves_utils.c
+        src/render_map.c
+        src/init_textures.c
+        src/init_textures_utils.c
+        src/key_press_processing.c
+        src/init_map_objects.c
+        src/render_objects.c
         )
+
+target_compile_options(mlx PRIVATE -O2)
+target_compile_options(ft PRIVATE -O2)
+target_compile_options(so_long PRIVATE -O2
+        -Wall
+        -Wextra
+        -Werror)
 
 target_link_libraries(so_long ft)
 target_link_libraries(so_long mlx "-framework OpenGL" "-framework AppKit")
