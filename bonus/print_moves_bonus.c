@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
 void	render_counter(t_image_textures image_textures,
 						void *mlx, void *mlx_win)
