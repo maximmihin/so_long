@@ -1,6 +1,7 @@
 #include "../include/so_long.h"
 
-/// TODO more 25 lines
+void	minus_collectibles_first(t_list **collectibles_addresses);
+
 void	minus_collectibles(t_list **collectibles_addresses,
 							unsigned int to_x, unsigned int to_y)
 {
@@ -11,11 +12,7 @@ void	minus_collectibles(t_list **collectibles_addresses,
 	tmp_coll_address = *collectibles_addresses;
 	tmp_coord = ((t_map_object *)tmp_coll_address->content)->x_current_map_pos;
 	if (tmp_coord.x == to_x && tmp_coord.y == to_y)
-	{
-		*collectibles_addresses = (*collectibles_addresses)->next;
-		free(tmp_coll_address->content);
-		free(tmp_coll_address);
-	}
+		minus_collectibles_first(collectibles_addresses);
 	else
 	{
 		while (tmp_coll_address->next)
