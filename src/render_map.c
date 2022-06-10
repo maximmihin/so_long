@@ -1,20 +1,5 @@
 #include "../include/so_long.h"
 
-void	render_counter(t_image_textures image_textures,
-					   void *mlx, void *mlx_win)
-{
-	mlx_put_image_to_window(mlx, mlx_win, image_textures.counter_head, 0, 0);
-
-	mlx_put_image_to_window(mlx, mlx_win, image_textures.counter[0],
-							0,SCALE / 2);
-	mlx_put_image_to_window(mlx, mlx_win, image_textures.counter[0],
-							(SCALE / 4) * 1,SCALE / 2);
-	mlx_put_image_to_window(mlx, mlx_win, image_textures.counter[0],
-							(SCALE / 4) * 2,SCALE / 2);
-	mlx_put_image_to_window(mlx, mlx_win, image_textures.counter[0],
-							(SCALE / 4) * 3,SCALE / 2);
-}
-
 void	render_sector(t_render_data *render_data, int x, int y)
 {
 	t_map_object	****map;
@@ -45,7 +30,7 @@ void	render_sector(t_render_data *render_data, int x, int y)
 	}
 }
 
-void	render_all(t_render_data *render_data)
+void	render_map(t_render_data *render_data)
 {
 	unsigned int x;
 	unsigned int y;
@@ -62,12 +47,4 @@ void	render_all(t_render_data *render_data)
 		x = 0;
 		y++;
 	}
-}
-
-void	render_map(t_render_data *render_data)
-{
-	render_all(render_data);
-
-	render_counter(render_data->image_textures,
-				   render_data->mlx, render_data->mlx_win);
 }
