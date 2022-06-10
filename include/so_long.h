@@ -86,7 +86,7 @@ typedef struct s_render_data
 	unsigned int		collectibles_speed;
 	t_map_object		*space_x;
 	t_map_object		*wall_x;
-	t_map_object		*player_x;
+	t_map_object		*player;
 	t_list				*exits_x;
 	t_list				*collectibles_x;
 	t_list				*enemies_x;

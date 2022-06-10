@@ -1,8 +1,8 @@
 #include "../include/so_long.h"
 
-void	config_shift_texture(t_map_object **map_obj, int move_dir)
+void	config_shift_texture(t_map_object **map_obj, int move_dir, int shift)
 {
-	(*map_obj)->shift_value = PLAYER_SHIFT;
+	(*map_obj)->shift_value = shift;
 	if (move_dir == 0 || move_dir == 1)
 		(*map_obj)->shift_value *= -1;
 	if (move_dir == 0 || move_dir == 2)

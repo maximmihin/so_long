@@ -33,10 +33,8 @@ void	collectibles_to_print(t_list **print_list, t_list *collectibles)
 	{
 		((t_map_object *)collectibles->content)->x_texture = ((t_map_object *)
 				collectibles->content)->x_texture->next;
-
 		add_coordinates_to_print_list(print_list, &((t_map_object *)
 				collectibles->content)->x_current_map_pos);
-
 		collectibles = collectibles->next;
 	}
 }
@@ -49,10 +47,8 @@ void	render_list(t_list **to_print, t_render_data *render_data)
 	while (*to_print)
 	{
 		tmp_list = (*to_print)->next;
-
 		tmp_coord = *((t_coordinates *)(*to_print)->content);
 		render_sector(render_data, tmp_coord.x, tmp_coord.y);
-
 		free(*to_print);
 		(*to_print) = tmp_list;
 	}

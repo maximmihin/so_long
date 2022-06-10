@@ -1,5 +1,6 @@
 #include "../include/so_long.h"
 
+/// TODO 25 lines
 void	render_sector(t_render_data *render_data, int x, int y)
 {
 	t_map_object	****map;
@@ -7,14 +8,14 @@ void	render_sector(t_render_data *render_data, int x, int y)
 	void			*texture_to_print;
 	int				lvl;
 
-	map = render_data->map_new;
+	map = render_data->map;
 	sector = map[y][x];
 	lvl = 0;
 	if (!sector[1])
 	{
 		texture_to_print = sector[lvl]->x_texture->content;
 		mlx_put_image_to_window(render_data->mlx, render_data->mlx_win,
-								texture_to_print, x * SCALE, y * SCALE);
+			texture_to_print, x * SCALE, y * SCALE);
 	}
 	lvl++;
 	while (lvl < MAP_LAYERS)
@@ -23,8 +24,8 @@ void	render_sector(t_render_data *render_data, int x, int y)
 		{
 			texture_to_print = sector[lvl]->x_texture->content;
 			mlx_put_image_to_window(render_data->mlx, render_data->mlx_win,
-									texture_to_print, sector[lvl]->x_windows_pos.x,
-									sector[lvl]->x_windows_pos.y);
+				texture_to_print, sector[lvl]->x_windows_pos.x,
+				sector[lvl]->x_windows_pos.y);
 		}
 		lvl++;
 	}
@@ -32,8 +33,8 @@ void	render_sector(t_render_data *render_data, int x, int y)
 
 void	render_map(t_render_data *render_data)
 {
-	unsigned int x;
-	unsigned int y;
+	unsigned int	x;
+	unsigned int	y;
 
 	x = 0;
 	y = 0;

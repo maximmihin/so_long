@@ -6,21 +6,21 @@ void	update_current_pos_enemies(t_list *enemies_x, t_map_object ****map);
 
 void	event_player_end_move(t_render_data *render_data)
 {
-	render_data->player_x->x_current_map_pos =
-			render_data->player_x->x_target_map_pos;
+	render_data->player->x_current_map_pos
+		= render_data->player->x_target_map_pos;
 	processing_collectibles(render_data);
 	processing_exits(render_data);
 	print_moves(render_data);
-	render_data->player_x->move_dir = 10;
+	render_data->player->move_dir = 10;
 }
 
 void	event_enemies_end_move(t_render_data *render_data)
 {
-	update_current_pos_enemies(render_data->enemies_x, render_data->map_new);
+	update_current_pos_enemies(render_data->enemies_x, render_data->map);
 	render_data->enemy_freez = 0;
 }
 
-int		is_player_eaten(t_list *enemies, t_map_object *player)
+int	is_player_eaten(t_list *enemies, t_map_object *player)
 {
 	t_map_object	*tmp_enemy;
 

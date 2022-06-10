@@ -6,7 +6,7 @@ void	appoint_exits_textures(t_list **all_exits, t_render_data *render_data)
 	t_list			*tmp_list;
 
 	tmp_list = *all_exits;
-	while(tmp_list)
+	while (tmp_list)
 	{
 		tmp_obj = tmp_list->content;
 		tmp_obj->x_texture = render_data->image_textures.exit_x;
@@ -15,7 +15,7 @@ void	appoint_exits_textures(t_list **all_exits, t_render_data *render_data)
 }
 
 void	appoint_collectibles_textures(t_list **all_collectibles,
-									  t_render_data *render_data)
+										t_render_data *render_data)
 {
 	t_map_object	*tmp_obj;
 	t_list			*tmp_list;
@@ -23,7 +23,7 @@ void	appoint_collectibles_textures(t_list **all_collectibles,
 
 	i = 0;
 	tmp_list = *all_collectibles;
-	while(tmp_list)
+	while (tmp_list)
 	{
 		tmp_obj = tmp_list->content;
 		tmp_obj->x_texture = render_data->image_textures.coll_x[i];
@@ -35,17 +35,16 @@ void	appoint_collectibles_textures(t_list **all_collectibles,
 }
 
 void	appoint_enemies_textures(t_list **all_enemies,
-								 t_render_data *render_data)
+									t_render_data *render_data)
 {
 	t_map_object	*tmp_obj;
 	t_list			*tmp_list;
 
 	tmp_list = *all_enemies;
-	while(tmp_list)
+	while (tmp_list)
 	{
 		tmp_obj = tmp_list->content;
 		tmp_obj->x_texture = render_data->image_textures.enemy_x[0];
 		tmp_list = tmp_list->next;
 	}
 }
-

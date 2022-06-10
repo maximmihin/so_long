@@ -1,6 +1,7 @@
 #include "../include/so_long.h"
 
-void	find_map_size(unsigned int *map_height, unsigned int *map_width, char **map)
+void	find_map_size(unsigned int *map_height, unsigned int *map_width,
+			char **map)
 {
 	*map_height = 0;
 	*map_width = 0;
@@ -23,8 +24,8 @@ t_map_object	****init_map(unsigned int y_length, unsigned int x_length)
 		error("Error : malloc (***root) failed\n");
 	while (y < y_length)
 	{
-		root[y] = (t_map_object ***) malloc(sizeof(t_map_object **) *
-											x_length);
+		root[y] = (t_map_object ***) malloc(sizeof(t_map_object **)
+				* x_length);
 		if (!root[y])
 			error("Error : malloc (root[y]) failed\n");
 		y++;
@@ -34,7 +35,7 @@ t_map_object	****init_map(unsigned int y_length, unsigned int x_length)
 
 void	del_map_char(char **map_char, int y_len)
 {
-	int y;
+	int	y;
 
 	y = 0;
 	while (y < y_len)
@@ -48,7 +49,6 @@ void	del_map_char(char **map_char, int y_len)
 void	init_render_counters(t_render_data *render_data)
 {
 	render_data->moves = 0;
-	render_data->loop_iteration = 0;
 	render_data->player_speed = 0;
 	render_data->enemy_freez = 0;
 	render_data->enemy_animation_steps = 0;

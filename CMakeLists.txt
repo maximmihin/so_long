@@ -6,7 +6,6 @@ set(CMAKE_C_STANDARD 99)
 set(LIBFT_PATH libs/libft)
 set(MLX_PATH libs/MinilibX)
 
-
 include_directories(include)
 include_directories(${LIBFT_PATH})
 include_directories(${MLX_PATH})

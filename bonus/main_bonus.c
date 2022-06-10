@@ -46,8 +46,8 @@ t_render_data	*init_render_data(char *map_file)
 	render_data->mlx = mlx_init();
 	render_data->image_textures = init_all_textures(render_data->mlx);
 	init_map_objects(&render_data, map_char);
-	render_data->map_new = init_map(render_data->y_length,
-									render_data->x_length);
+	render_data->map = init_map(render_data->y_length,
+								render_data->x_length);
 	filling_map(render_data, map_char);
 	del_map_char(map_char, render_data->y_length);
 	render_data->mlx_win = mlx_new_window(render_data->mlx,

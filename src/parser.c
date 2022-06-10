@@ -10,6 +10,7 @@ int	is_ber_file(char *map_file)
 	return (!ft_strncmp(dot, ".ber\0", 5));
 }
 
+/// TODO more 25 lines
 char	*get_map_in_line(char *map_file)
 {
 	int		fd;

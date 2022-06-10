@@ -1,14 +1,15 @@
 #include "../include/so_long.h"
 
-void	appoint_exits_textures(t_list **all_exits, t_render_data *render_data);
-void	appoint_collectibles_textures(t_list **all_collectibles,
-									  t_render_data *render_data);
-void	appoint_enemies_textures(t_list **all_enemies,
-								 t_render_data *render_data);
-void	add_obj(t_list **list_objs, char type, unsigned int x, unsigned int y);
-t_list	*create_list_objs(char **map, char type);
+void			appoint_exits_textures(t_list **all_exits,
+					t_render_data *render_data);
+void			appoint_collectibles_textures(t_list **all_collectibles,
+					t_render_data *render_data);
+void			appoint_enemies_textures(t_list **all_enemies,
+					t_render_data *render_data);
+void			add_obj(t_list **list_objs, char type, unsigned int x,
+					unsigned int y);
+t_list			*create_list_objs(char **map, char type);
 t_coordinates	find_windows_pos(t_coordinates map_pos);
-
 
 t_coordinates	find_player_position(char **map)
 {
@@ -73,13 +74,12 @@ void	init_map_objects(t_render_data **render_data, char **map_char)
 {
 	(*render_data)->space_x = init_space(*render_data);
 	(*render_data)->wall_x = init_wall(*render_data);
-	(*render_data)->player_x = init_player(*render_data, map_char);
+	(*render_data)->player = init_player(*render_data, map_char);
 	(*render_data)->exits_x = create_list_objs(map_char, 'E');
 	appoint_exits_textures(&(*render_data)->exits_x, *render_data);
-
 	(*render_data)->collectibles_x = create_list_objs(map_char, 'C');
 	appoint_collectibles_textures(&(*render_data)->collectibles_x,
-								  *render_data);
+		*render_data);
 	(*render_data)->enemies_x = create_list_objs(map_char, 'B');
 	appoint_enemies_textures(&(*render_data)->enemies_x, *render_data);
 }

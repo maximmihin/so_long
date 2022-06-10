@@ -1,9 +1,13 @@
 #include "../include/so_long.h"
 
+void			config_shift_texture(t_map_object **map_obj,
+					int move_dir, int shift);
+t_coordinates	x_get_target_pos(t_coordinates current_map_pos, int move_dir);
+
 int	win_kill(int keycode, t_render_data *render_data)
 {
 	if (keycode == 0)
-		ft_putstr_fd("\nYou are Exit!\n",1);
+		ft_putstr_fd("\nYou are Exit!\n", 1);
 	if (keycode == 1)
 		ft_putstr_fd("\nYou won!\n", 1);
 	if (keycode == 2)
@@ -14,7 +18,7 @@ int	win_kill(int keycode, t_render_data *render_data)
 
 int	x_get_move_dir(int keycode)
 {
-	int move_dir;
+	int	move_dir;
 
 	move_dir = 9;
 	if (keycode == KEY_W || keycode == ARROW_UP)
@@ -52,22 +56,19 @@ int	key_press_processing_x(int keycode, t_render_data *render_data)
 		return (0);
 	if (render_data->player_freez)
 		return (0);
-	tmp_target_pos = x_get_target_pos(render_data->player_x->x_current_map_pos,
-									  x_move_dir);
-	if (!is_move_possible5(render_data->map_new, tmp_target_pos))
+	tmp_target_pos = x_get_target_pos(render_data->player->x_current_map_pos,
+			x_move_dir);
+	if (!is_move_possible5(render_data->map, tmp_target_pos))
 		return (0);
 	render_data->player_freez = 1;
 	render_data->player_speed = PLAYER_ANIMATION_STEPS - 1;
-	render_data->player_x->x_texture = x_get_texture_player
-			(x_move_dir, render_data);
-	render_data->player_x->x_target_map_pos = tmp_target_pos;
-	render_data->player_x->move_dir = x_move_dir;
-	render_data->map_new[tmp_target_pos.y][tmp_target_pos.x][2] =
-			render_data->player_x;
-	config_shift_texture(&render_data->player_x, x_move_dir);
-	*render_data->player_x->ptr_shift_coord += render_data->player_x->shift_value;
+	render_data->player->x_texture = x_get_texture_player
+		(x_move_dir, render_data);
+	render_data->player->x_target_map_pos = tmp_target_pos;
+	render_data->player->move_dir = x_move_dir;
+	render_data->map[tmp_target_pos.y][tmp_target_pos.x][2]
+		= render_data->player;
+	config_shift_texture(&render_data->player, x_move_dir, PLAYER_SHIFT);
+	*render_data->player->ptr_shift_coord += render_data->player->shift_value;
 	return (0);
 }
-
-
-
