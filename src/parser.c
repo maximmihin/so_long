@@ -1,5 +1,8 @@
 #include "../include/so_long.h"
 
+int		get_fd(char *map_file);
+char	*init_buff(void);
+
 int	is_ber_file(char *map_file)
 {
 	char	*dot;
@@ -10,7 +13,6 @@ int	is_ber_file(char *map_file)
 	return (!ft_strncmp(dot, ".ber\0", 5));
 }
 
-/// TODO more 25 lines
 char	*get_map_in_line(char *map_file)
 {
 	int		fd;
@@ -19,12 +21,8 @@ char	*get_map_in_line(char *map_file)
 	long	was_read;
 	char	*tmp;
 
-	fd = open(map_file, O_RDONLY);
-	if (fd == -1)
-		error("Error : can't open file\n");
-	buff = (char *) malloc(sizeof(char) * (BUFF_SIZE + 1));
-	if (!buff)
-		error("Error : malloc failed\n");
+	fd = get_fd(map_file);
+	buff = init_buff();
 	was_read = read(fd, buff, BUFF_SIZE);
 	if (was_read == -1)
 		error("Error : read file failed\n");
