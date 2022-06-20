@@ -93,7 +93,8 @@ add_executable(so_long
         src/main_loop_print_list.c
         src/enemies_mod_utils.c
         src/main_loop_event_utils.c
-        src/minus_collectibles_first.c src/parser_utils.c)
+        src/minus_collectibles_first.c
+        src/parser_utils.c)
 
 add_executable(so_long_bonus
         bonus/main_bonus.c
@@ -107,7 +108,20 @@ add_executable(so_long_bonus
         src/init_textures_utils.c
         src/key_press_processing.c
         src/init_map_objects.c
-        src/init_render_data_utils.c src/init_map_object_utils.c src/appoint_textures.c src/filling_map.c src/init_textures.c src/move_config_utils.c src/main_loop_x.c src/main_loop_event.c src/main_loop_mod_utils.c src/main_loop_print_list.c src/enemies_mod_utils.c src/main_loop_event_utils.c src/minus_collectibles_first.c src/parser_utils.c)
+        src/init_render_data_utils.c
+        src/init_map_object_utils.c
+        src/appoint_textures.c
+        src/filling_map.c
+        src/init_textures.c
+        src/move_config_utils.c
+        src/main_loop_x.c
+        src/main_loop_event.c
+        src/main_loop_mod_utils.c
+        src/main_loop_print_list.c
+        src/enemies_mod_utils.c
+        src/main_loop_event_utils.c
+        src/minus_collectibles_first.c
+        src/parser_utils.c)
 
 target_compile_options(mlx PRIVATE -O2)
 target_compile_options(ft PRIVATE -O2)
