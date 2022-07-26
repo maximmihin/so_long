@@ -9,7 +9,7 @@
 
 # Linker output
 *.ilk
-*.map
+*.map_old
 *.exp
 
 # Precompiled Headers
@@ -50,3 +50,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+.DS_Store
+so_long
+.idea
+cmake-build-debug/
